@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import Button from "@mui/material/Button";
+import { BackButton } from "../components/Buttons";
+import { Lables } from "../constants";
 
 const TwofactorCode: React.FC = () => {
   const inputRefs: React.RefObject<HTMLInputElement>[] = [
@@ -42,7 +44,7 @@ const TwofactorCode: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex  items-center justify-center ">
       <div className="flex flex-col gap-10 items-center justify-center border-2 border-gray-400 p-10 rounded">
       <div className="flex gap-2">
         {inputRefs.map((ref, index) => (
@@ -59,10 +61,10 @@ const TwofactorCode: React.FC = () => {
         ))}
       </div>
       <Button variant="contained" className="w-full h-12 bg-gray-700" onClick={submitCode}>
-        Submit
+        {Lables.SUBMIT_BUTTON}
       </Button>
     </div>
-
+       
     </div>  );
 };
 
