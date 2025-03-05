@@ -1,16 +1,15 @@
-import React from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-import { BackButton } from "../components/Buttons";
+import { BreadCrum } from "../components/Buttons";
 
 const Layout = () => {
   return (
-    <div className="flex h-screen flex-col justify-between relative">
+    <div className="flex h-screen flex-col justify-between  relative">
       <Header />
-      <BackButton />
+      <BreadCrum />
       <div className="overflow-auto">
-      <Outlet />
+        <Outlet />
       </div>
       <Footer />
     </div>

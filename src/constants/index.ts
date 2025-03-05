@@ -1,6 +1,7 @@
 export const Strings = {
     HEADER_TEXT : "FRONTEND EVAL SOLUTIONS",
-    FOOTER_TEXT : "Created By: Rishabh Mishra"
+    FOOTER_TEXT : "Created By: Rishabh Mishra",
+    SHOPPING_TEXT: "Shopping List"
     
 }
 

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import GridCards from "../components/GridCards"; 
-import { BackButton } from "../components/Buttons";
+
 import { Lables } from "../constants";
 
 const MemoryGame: React.FC = () => {
   const [allMatched, setAllMatched] = useState<boolean>(false);
 
   return (
-    <div className=" flex justify-center items-center ">
+    <div className=" flex justify-center items-center mt-10">
       {!allMatched && <GridCards setAllMatched={setAllMatched} />}
       {allMatched && (
         <button

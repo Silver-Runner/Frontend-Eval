@@ -1,6 +1,7 @@
 import React, { useCallback,  useState } from "react";
 import TextField from "@mui/material/TextField";
-import { BackButton } from "../components/Buttons";
+import { Strings } from "../constants";
+
 const debounce = (fn: Function, delay: number) => {
   let timer: number;
 
@@ -19,7 +20,7 @@ const ShoppingList = () => {
   const [matching,setMatching] = useState<string[]>([])
   const getData = async (value: string) => {
     try {
-      if (value !== "") {
+      if (value.length >= 3) {
         const res = await fetch(ApiURL + value);
         const data = await res.json();
         setMatching([...data])
@@ -38,8 +39,8 @@ const ShoppingList = () => {
 
   return (
     <div className=" flex flex-col  items-center gap-5">
-      <h1 className="text-2xl font-bold underline text-blue-600 ">
-        My Shopping List
+      <h1 className="text-2xl font-bold  text-blue-600 ">
+        {Strings.SHOPPING_TEXT}
       </h1>
       <TextField
         id="outlined-basic"
@@ -48,10 +49,10 @@ const ShoppingList = () => {
         className="sm:w-3/4 lg:w-100 mt-25"
         onChange={handleKeyPress}
       />
-     {Search !== "" && <div className=" flex flex-col sm:w-3/4 lg:w-100  border-2 border-blue-400 rounded p-5 gap-2">
-        {matching.map((match,index)=>(
+     { <div className=" flex flex-col sm:w-3/4 lg:w-100 h-60 overflow-auto  border-2 border-blue-400 rounded p-5 gap-2">
+        {Search !== "" && <>{matching.map((match,index)=>(
           <p key={index} className="text-blue-500 border border-blue-400 p-2">{match}</p>
-        ))}
+        ))}</>}
       </div>}
       
     </div>

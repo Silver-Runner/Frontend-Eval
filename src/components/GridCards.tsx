@@ -85,9 +85,8 @@ const GridCards: React.FC<GridCardProps> = ({ setAllMatched }) => {
   }, [cards, setAllMatched]);
 
   return (
-    <div className="flex flex-col gap-5 items-center mt-2">
-      <h1 className="text-2xl font-bold">Memory Game</h1>
-      <div className="grid grid-cols-6 gap-1 w-3/4 h-1/2 p-4">
+    <div className="flex flex  gap-5 justify-center  ">
+      <div className="grid grid-cols-6 gap-1 h-1/2 w-3/4 p-2">
         {cards.map((card) => (
           <div key={card.id} className="flex justify-center items-center">
             <MemoryCard
