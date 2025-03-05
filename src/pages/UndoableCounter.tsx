@@ -82,7 +82,7 @@ const UndoableCounter: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-85 gap-5 m-10 justify-start items-center">
+    <div className="flex flex-col h-85 gap-5 m-2 justify-start items-center">
       <div className="flex gap-2">
         {historys.length ? (
           <Button variant="contained" onClick={handleUndo} className="mr-5">
@@ -114,7 +114,7 @@ const UndoableCounter: React.FC = () => {
           <Button onClick={() => handleOperation("-10", -10)}>-10</Button>
           <Button onClick={() => handleOperation("-1", - 1)} className="w-17">-1</Button>
         </ButtonGroup>
-        <p className="text-blue-600 w-30 items-center text-center border border-blue-300 rounded-sm p-5">
+        <p className="text-blue-600 w-30 max-sm:w-50 items-center text-center border border-blue-300 rounded-sm p-5">
           {counter}
         </p>
         <ButtonGroup size="large" aria-label="Large button group" className="">
@@ -125,7 +125,7 @@ const UndoableCounter: React.FC = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-blue-600">HISTORY</h1>
-        <div className="flex flex-col min-w-40 justify-center items-center border border-blue-400 p-5 rounded-sm overflow">
+        <div className="flex flex-col min-w-40 h-30 max-sm:h-10 overflow-auto justify-start items-center border border-blue-400 p-2 rounded-sm overflow">
           {historys.map((history, index) => (
             <p key={index} className="text-blue-600">
               {`${history.operation}  `}

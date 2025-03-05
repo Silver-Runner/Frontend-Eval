@@ -19,7 +19,7 @@ const MemoryCard: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className="flex justify-center items-center max-sm:h-9 w-10  lg:h-12 w-13  max-xl:h-30 w-31 cursor-pointer perspective-1000"
+      className="flex justify-center items-center max-sm:h-9 w-10  lg:h-12 w-13 md:h-11 w-12 max-xl:h-30 w-31 cursor-pointer perspective-1000"
       onClick={() =>
         !isFlipped && !isMatched && !isDisabled && onCardClick(id, number)
       }

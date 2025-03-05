@@ -4,8 +4,9 @@ export const BreadCrum = () => {
    
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter(Boolean);
+  console.log(location.pathname)
   return (
-    <nav aria-label="breadcrumb " className="absolute top-20 left-5 shadow-lg p-1">
+    <nav aria-label="breadcrumb " className="absolute top-15 left-5 shadow-lg p-1">
     <ol className="flex space-x-2 text-sm text-gray-500">
       <li>
         <Link to="/" className={location.pathname === "/" ? " text-gray-600 hover:cursor-default":"text-gray-600 hover:text-blue-800" }>

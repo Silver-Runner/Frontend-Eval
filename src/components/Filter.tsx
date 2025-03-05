@@ -19,7 +19,7 @@ const Filter: React.FC<FilterProps> = ({ difficulty, setDifficulty }) => {
   };
 
   return (
-    <div className="absolute top-20 right-5">
+    <div className="absolute top-15 right-5">
       <select
         value={difficulty}
         onChange={handleChange}
