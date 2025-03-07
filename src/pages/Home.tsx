@@ -1,29 +1,29 @@
 import HomeCard from "../components/HomeCard";
 import { cards } from "../assets/assets";
 import Filter from "../components/Filter";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store"; 
 const Home = () => {
-  const [difficulty, setDifficulty] = useState<string>("all");
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const difficulty = useSelector((state: RootState) => state.filter.filter);
   const FilterCards =
     difficulty === "all"
       ? cards
       : cards.filter((card) => {
           return card.difficulty === difficulty;
         });
-  useEffect(() => {
-    console.log(difficulty);
-    console.log(FilterCards);
-  }, [difficulty]);
+  
   return (
-    <div className="flex  flex-col justify-start  items-center mb-2">
-      <Filter setDifficulty={setDifficulty} difficulty={difficulty} />
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  mt-5">
+    <div className="flex  flex-col justify-start  items-center mb-2 mt-10">
+      <Filter />
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  ">
         {FilterCards.map((card, index) => (
           <HomeCard
             key={index}
             title={card.title}
             description={card.description}
             navigate={card.navigate}
+            difficulty={card.difficulty}
           />
         ))}
       </div>

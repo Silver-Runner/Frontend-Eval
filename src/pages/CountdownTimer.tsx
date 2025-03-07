@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 
-import { Lables } from "../constants";
+import { Lables, Strings } from "../constants";
 
 const CountdownTimer: React.FC = () => {
   const [hours, setHours] = useState<number>(0);
@@ -76,7 +76,7 @@ const CountdownTimer: React.FC = () => {
         clearInterval(intervalId);
       }
     };
-  }, [isRunning, timeLeft, intervalId]);
+  }, [ timeLeft,isRunning ]);
 
   const handleInputChange = (setter: React.Dispatch<React.SetStateAction<number>>) => (
     e: React.ChangeEvent<HTMLInputElement>
@@ -89,7 +89,7 @@ const CountdownTimer: React.FC = () => {
 
   return (
     <div className=" flex flex-col justify-start items-center gap-4 mt-10 ">
-      <h1 className="text-blue-600 text-xl">Countdown Timer</h1>
+      <h1 className="text-gray-600 text-xl font-bold">{Strings.COUNTDOWN_TEXT}</h1>
       <div className="flex flex-row justify-center items-center gap-5">
         <input
           type="number"

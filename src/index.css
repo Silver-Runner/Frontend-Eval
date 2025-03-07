@@ -14,3 +14,7 @@
     transform-style: preserve-3d;
   }
 }
+@theme{
+  --dark-mode:#264348;
+  --light-mode:#f5f5f5;
+}

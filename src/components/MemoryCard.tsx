@@ -1,5 +1,6 @@
 import React from "react";
-
+import { RootState } from "../app/store";
+import { useSelector } from "react-redux";
 interface CardProps {
   number: number;
   id: number;
@@ -17,7 +18,9 @@ const MemoryCard: React.FC<CardProps> = ({
   isMatched,
   isDisabled,
 }) => {
+   const theme = useSelector((state: RootState) => state.theme.theme);
   return (
+    
     <div
       className="flex justify-center items-center max-sm:h-9 w-10  lg:h-12 w-13 md:h-11 w-12 max-xl:h-30 w-31 cursor-pointer perspective-1000"
       onClick={() =>
@@ -30,15 +33,19 @@ const MemoryCard: React.FC<CardProps> = ({
         }`}
       >
         <div
-          className={`absolute w-full h-full ${
+          className={theme === "light" ? `absolute w-full h-full ${
             isMatched ? "bg-white" : "bg-blue-500"
-          } flex items-center justify-center text-3xl font-bold backface-hidden`}
+          } flex items-center justify-center text-3xl font-bold backface-hidden` :
+          `absolute w-full h-full ${
+            isMatched ? "bg-white" : "bg-yellow-700"
+          } flex items-center justify-center text-3xl font-bold backface-hidden` 
+        }
         >
           {isMatched && <span></span>}
         </div>
 
         <div
-          className={`absolute w-full h-full bg-red-500 flex items-center justify-center text-white text-3xl font-bold backface-hidden rotate-y-180 ${
+          className={`absolute w-full h-full bg-gray-500 flex items-center justify-center text-white text-3xl font-bold backface-hidden rotate-y-180 ${
             isFlipped ? "" : "rotate-y-180"
           }`}
         >
