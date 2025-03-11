@@ -4,7 +4,6 @@ import Filter from "../components/Filter";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store"; 
 const Home = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
   const difficulty = useSelector((state: RootState) => state.filter.filter);
   const FilterCards =
     difficulty === "all"
